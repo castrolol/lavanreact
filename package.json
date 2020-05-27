@@ -10,8 +10,10 @@
     "@testing-library/user-event": "^7.1.2",
     "material-table": "^1.57.2",
     "moment": "^2.25.3",
+    "notistack": "^0.9.16",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.0"
   },

@@ -1,12 +1,24 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
-import ServicosPage from "./servicos/ServicosPage";
+import ServicosModule from "./servicos";
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { SnackbarProvider } from 'notistack';
 
 function App() {
   return (
-    <Layout>
-      <ServicosPage />
-    </Layout>
+    <BrowserRouter>
+      <SnackbarProvider maxSnack={3}>
+
+        <Layout>
+
+          <Switch>
+            <Route path="/servicos" component={ServicosModule} />
+          </Switch>
+
+        </Layout>
+      </SnackbarProvider>
+
+    </BrowserRouter>
   );
 }
 

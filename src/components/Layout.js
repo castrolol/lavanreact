@@ -28,6 +28,7 @@ const SideMenuContainer = styled.div`
 `;
 const ContentContainer = styled.div`
   flex: 1;
+  background-color: #f5f5f5;
 `;
 
 function Layout({ children }) {
