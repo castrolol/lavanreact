@@ -9,10 +9,10 @@ function useServicoFormValidations(form) {
         return null;
     }, [form.nome]);
 
-    const medida = useMemo(() => {
-        if (!form.medida) return "Medida deve ser selecionada";
+    const unidade_medida = useMemo(() => {
+        if (!form.unidade_medida) return "Medida deve ser selecionada";
         return null;
-    }, [form.medida]);
+    }, [form.unidade_medida]);
 
 
     const preco = useMemo(() => {
@@ -32,19 +32,19 @@ function useServicoFormValidations(form) {
     // agrupado
     const errors = useMemo(() => ({
         nome,
-        medida,
+        unidade_medida,
         preco,
         prazo
-    }), [nome, medida, preco, prazo])
+    }), [nome, unidade_medida, preco, prazo])
 
     const hasErrors = useMemo(() => {
         return (
             !!nome ||
-            !!medida ||
+            !!unidade_medida ||
             !!preco ||
             !!prazo
         );
-    }, [nome, medida, preco, prazo]);
+    }, [nome, unidade_medida, preco, prazo]);
 
     return [errors, hasErrors];
 }

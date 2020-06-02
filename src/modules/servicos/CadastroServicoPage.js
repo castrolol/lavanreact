@@ -74,11 +74,11 @@ export default function CadastroServicoPage() {
 
                 <div className={styles.row}>
                     <TextField
-                        error={pristine.medida && errors.medida}
-                        helperText={pristine.medida ? errors.medida : null}
-                        onBlur={() => touchField("medida")}
-                        value={form.medida}
-                        onChange={e => setField("medida", e.target.value)}
+                        error={pristine.unidade_medida && errors.unidade_medida}
+                        helperText={pristine.unidade_medida ? errors.unidade_medida : null}
+                        onBlur={() => touchField("unidade_medida")}
+                        value={form.unidade_medida}
+                        onChange={e => setField("unidade_medida", e.target.value)}
                         className={styles.select}
                         select
                         label="Medida"  >

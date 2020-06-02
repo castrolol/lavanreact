@@ -18,7 +18,7 @@ export default function useServicoSave(data, hasErrors, callback) {
         setLoading(true);
 
         try {
-            await http.post(URLS.SALVAR_SERVICO, data);
+            await http.put(URLS.SALVAR_SERVICO, data);
             callback(null, true);
         } catch (err) {
             // notifcar?
