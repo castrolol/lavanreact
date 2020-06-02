@@ -13,3 +13,15 @@ Abra [http://localhost:3000](http://localhost:3000) para ver em seu navegador.
 ### `yarn build`
 
 Cria uma compilação do projeto na pasta `build` para modo de produção.
+
+
+### Server
+para instalar as dependencias
+` cd server && npm install` 
+ou se usar yarn
+` cd server && yarn` 
+
+
+para executar...
+
+` node server `
