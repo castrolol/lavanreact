@@ -7,8 +7,10 @@ import DoneIcon from "@material-ui/icons/Done";
 import AddIcon from "@material-ui/icons/Add";
 import moment from "moment";
 import { useHistory } from 'react-router-dom'
+import { useConfirm } from 'material-ui-confirm';
 
 import useServicosApi from "./hooks/useServicosApi";
+import useRemoverServico from "./hooks/useRemoverServico";
 
 
 const columns = [
@@ -46,11 +48,14 @@ const useStyles = makeStyles({
 })
 
 function ServicosPage() {
+
+  const confirm = useConfirm();
   const history = useHistory();
   const classes = useStyles();
 
   const [filtroUnidade, setFiltroUnidade] = useState(null);
-  const [servicos, loading] = useServicosApi(filtroUnidade);
+  const [servicos, loading, reload] = useServicosApi(filtroUnidade);
+  const [remover] = useRemoverServico(reload);
 
   return (
     <div style={{ padding: 16 }}>
@@ -69,11 +74,47 @@ function ServicosPage() {
           Novo Serviço
         </Button>
       </div>
+     
       <MaterialTable
         isLoading={loading}
         title="Serviços"
         columns={columns}
         data={servicos}
+        localization={{
+          'header': { actions: "Ações" }
+        }}
+        actions={[
+          {
+            icon: 'edit',
+            tooltip: 'Alterar Produto',
+            onClick: (event, rowData) => alert("You saved " + rowData.id)
+          },
+          {
+            icon: 'delete',
+            tooltip: 'Alterar Produto',
+            onClick: (event, rowData) => {
+              
+              confirm({
+                title: "Deseja realmente remover?",
+                description: (
+                  <span>
+                    Você deseja realmente remover 
+                    <strong style={{color:'#ff3322'}}> permanentemente </strong> 
+                    o serviço <strong>{rowData.nome}</strong>?
+                  </span>
+                ),
+                confirmationText: 'Sim, Desejo Remover',
+                cancellationText: 'Não, cancelar'
+              })
+              .then(() => remover(rowData.id))
+            }
+
+          }
+        ]}
+        options={{
+          actionsColumnIndex: -1,
+
+        }}
       />
     </div>
   );

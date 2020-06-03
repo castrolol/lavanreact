@@ -3,21 +3,23 @@ import Layout from "../components/Layout";
 import ServicosModule from "./servicos";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { SnackbarProvider } from 'notistack';
+import { ConfirmProvider } from 'material-ui-confirm';
 
 function App() {
   return (
     <BrowserRouter>
-      <SnackbarProvider maxSnack={3}>
+      <ConfirmProvider>
+        <SnackbarProvider maxSnack={3}>
 
-        <Layout>
+          <Layout>
 
-          <Switch>
-            <Route path="/servicos" component={ServicosModule} />
-          </Switch>
+            <Switch>
+              <Route path="/servicos" component={ServicosModule} />
+            </Switch>
 
-        </Layout>
-      </SnackbarProvider>
-
+          </Layout>
+        </SnackbarProvider>
+      </ConfirmProvider>
     </BrowserRouter>
   );
 }
