@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-
+import { useHistory } from 'react-router-dom'
 import List from "@material-ui/core/List";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import ListItem from "@material-ui/core/ListItem";
@@ -32,6 +32,7 @@ const ContentContainer = styled.div`
 `;
 
 function Layout({ children }) {
+
   return (
     <Container>
       <Header />
@@ -59,11 +60,13 @@ function Header() {
 }
 
 function SideMenu() {
+
+  const history = useHistory();
   return (
     <SideMenuContainer>
       <List component="nav">
         <ListSubheader>Menu</ListSubheader>
-        <ListItem button>
+        <ListItem button onClick={() => history.push("servicos")}>
           <ListItemText primary="Serviços" />
         </ListItem>
       </List>

@@ -5,7 +5,7 @@ import { useSnackbar } from 'notistack';
 
 
 
-export default function useServicoSave(data, hasErrors, callback) {
+export default function useServicoSave(id, data, hasErrors, callback) {
     const [loading, setLoading] = useState(false);
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
@@ -18,7 +18,11 @@ export default function useServicoSave(data, hasErrors, callback) {
         setLoading(true);
 
         try {
-            await http.put(URLS.SALVAR_SERVICO, data);
+            if (id) { // representa uma edição!...
+                await http.put(URLS.ALTERAR_SERVICO(id), data);
+            } else { // representa uma crianção
+                await http.post(URLS.ADICIONAR_SERVICO, data);
+            }
             callback(null, true);
         } catch (err) {
             // notifcar?

@@ -11,6 +11,7 @@ export default function ServicosModule() {
         <Switch>
             <Route exact path="/servicos" component={ServicosPage} />
             <Route path="/servicos/novo" component={CadastroServicoPage} />
+            <Route path="/servicos/:id" component={CadastroServicoPage} />
         </Switch>
     )
 }

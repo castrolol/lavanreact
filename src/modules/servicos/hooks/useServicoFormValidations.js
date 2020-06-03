@@ -22,10 +22,10 @@ function useServicoFormValidations(form) {
         return null;
     }, [form.preco]);
 
-    const prazo = useMemo(() => {
-        if (!form.prazo) return "Prazo deve ser selecionado";
+    const entrega = useMemo(() => {
+        if (!form.entrega) return "Prazo deve ser selecionado";
         return null;
-    }, [form.prazo]);
+    }, [form.entrega]);
 
 
 
@@ -34,17 +34,17 @@ function useServicoFormValidations(form) {
         nome,
         unidade_medida,
         preco,
-        prazo
-    }), [nome, unidade_medida, preco, prazo])
+        entrega
+    }), [nome, unidade_medida, preco, entrega])
 
     const hasErrors = useMemo(() => {
         return (
             !!nome ||
             !!unidade_medida ||
             !!preco ||
-            !!prazo
+            !!entrega
         );
-    }, [nome, unidade_medida, preco, prazo]);
+    }, [nome, unidade_medida, preco, entrega]);
 
     return [errors, hasErrors];
 }

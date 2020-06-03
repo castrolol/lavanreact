@@ -74,7 +74,7 @@ function ServicosPage() {
           Novo Serviço
         </Button>
       </div>
-     
+
       <MaterialTable
         isLoading={loading}
         title="Serviços"
@@ -87,26 +87,26 @@ function ServicosPage() {
           {
             icon: 'edit',
             tooltip: 'Alterar Produto',
-            onClick: (event, rowData) => alert("You saved " + rowData.id)
+            onClick: (event, rowData) => history.push(`/servicos/${rowData.id}`)
           },
           {
             icon: 'delete',
             tooltip: 'Alterar Produto',
             onClick: (event, rowData) => {
-              
+
               confirm({
                 title: "Deseja realmente remover?",
                 description: (
                   <span>
-                    Você deseja realmente remover 
-                    <strong style={{color:'#ff3322'}}> permanentemente </strong> 
+                    Você deseja realmente remover
+                    <strong style={{ color: '#ff3322' }}> permanentemente </strong>
                     o serviço <strong>{rowData.nome}</strong>?
                   </span>
                 ),
                 confirmationText: 'Sim, Desejo Remover',
                 cancellationText: 'Não, cancelar'
               })
-              .then(() => remover(rowData.id))
+                .then(() => remover(rowData.id))
             }
 
           }

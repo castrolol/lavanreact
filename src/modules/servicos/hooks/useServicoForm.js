@@ -1,9 +1,15 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
-function useServicoForm() {
+function useServicoForm(initialData) {
 
     const [form, setForm] = useState({})
     const [pristine, setPristine] = useState({})
+
+    useEffect(() => {
+        if(!initialData) return;
+        
+        setForm(initialData);
+    }, [initialData])
 
     const setField = useCallback((field, value) => {
         setForm(_form => ({ ..._form, [field]: value }))

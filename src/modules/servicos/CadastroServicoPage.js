@@ -15,18 +15,22 @@ import { useHistory } from 'react-router-dom'
 import styles from './CadastroServicoPage.module.css';
 import useServicoForm from './hooks/useServicoForm';
 import useServicoFormValidations from './hooks/useServicoFormValidations';
+import useServicoDetalheApi from './hooks/useServicoDetalheApi';
 import useServicoSave from './hooks/useServicoSave';
+import { useParams } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 
 
 export default function CadastroServicoPage() {
+    const { id } = useParams();
     const history = useHistory();
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+    const [servico, loading] = useServicoDetalheApi(id);
 
-    const [form, setField, pristine, touchField] = useServicoForm();
+    const [form, setField, pristine, touchField] = useServicoForm(servico);
     const [errors, hasErrors] = useServicoFormValidations(form);
 
-    const [save, loading, error] = useServicoSave(form, hasErrors, (error, success) => {
+    const [save, submitting, error] = useServicoSave(id, form, hasErrors, (error, success) => {
         if (error) {
             for (let field in errors) {
                 touchField(field)
@@ -51,7 +55,7 @@ export default function CadastroServicoPage() {
         <div className={styles.root}>
             <div className={styles.header}>
 
-                <Typography variant="h5" >Cadastro de Serviço</Typography>
+                <Typography variant="h5" >{id ? "Alterando" : "Cadastro de"} Serviço</Typography>
                 <Button
                     onClick={save}
                     startIcon={<SaveIcon />}
@@ -59,14 +63,14 @@ export default function CadastroServicoPage() {
                     size="small"
                     color="primary">
                     Salvar
-        </Button>
+                </Button>
             </div>
             <Paper className={styles.content} >
                 <div className={styles.row}>
                     <TextField
                         error={pristine.nome && errors.nome}
                         helperText={pristine.nome ? errors.nome : null}
-                        value={form.nome}
+                        value={form.nome || ""}
                         onBlur={() => touchField("nome")}
                         onChange={e => setField("nome", e.target.value)}
                         label="Nome do Serviço" />
@@ -77,7 +81,7 @@ export default function CadastroServicoPage() {
                         error={pristine.unidade_medida && errors.unidade_medida}
                         helperText={pristine.unidade_medida ? errors.unidade_medida : null}
                         onBlur={() => touchField("unidade_medida")}
-                        value={form.unidade_medida}
+                        value={form.unidade_medida || ''}
                         onChange={e => setField("unidade_medida", e.target.value)}
                         className={styles.select}
                         select
@@ -89,7 +93,7 @@ export default function CadastroServicoPage() {
                     <TextField
                         error={pristine.preco && errors.preco}
                         helperText={pristine.preco ? errors.preco : null}
-                        value={form.preco}
+                        value={form.preco || 0}
                         onChange={e => setField("preco", (e.target.value))}
                         onBlur={() => touchField("preco")}
                         InputProps={{
@@ -103,11 +107,11 @@ export default function CadastroServicoPage() {
                     <FormLabel component="legend">Prazo de entrega</FormLabel>
 
                     <RadioGroup
-                        value={form.prazo}
-                        onChange={e => setField("prazo", e.target.value)}
+                        value={form.entrega ? form.entrega.toString() : "0"}
+                        onChange={e => setField("entrega", e.target.value)}
 
-                        error={pristine.prazo && errors.prazo}
-                        helperText={pristine.prazo ? errors.prazo : null}
+                        error={pristine.entrega && errors.entrega}
+                        helperText={pristine.entrega ? errors.entrega : null}
 
                         style={{ flexDirection: 'row' }}
                         aria-label="gender"

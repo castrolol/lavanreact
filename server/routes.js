@@ -28,7 +28,7 @@ module.exports = function (server) {
     });
 
     server.route({
-        method: 'POST',
+        method: 'PUT',
         path: '/servicos/{id}',
         options: {
             cors: true
@@ -50,7 +50,7 @@ module.exports = function (server) {
     });
 
     server.route({
-        method: 'PUT',
+        method: 'POST',
         path: '/servicos',
         options: {
             cors: true
