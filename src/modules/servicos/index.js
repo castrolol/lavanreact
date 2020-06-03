@@ -9,9 +9,9 @@ export default function ServicosModule() {
 
     return (
         <Switch>
-            <Route exact path="/servicos" component={ServicosPage} />
-            <Route path="/servicos/novo" component={CadastroServicoPage} />
-            <Route path="/servicos/:id" component={CadastroServicoPage} />
+            <Route exact path="/servicos/novo" component={CadastroServicoPage} />
+            <Route exact path="/servicos/:id" component={CadastroServicoPage} />
+            <Route path="/servicos" component={ServicosPage} />
         </Switch>
     )
 }
