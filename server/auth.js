@@ -81,7 +81,6 @@ module.exports = async function (server) {
             }
             const obj = {
                 username: payload.username,
-                password: payload.password,
                 profile_avatar: gravatar.url(payload.username),
                 sub: payload.username,
                 issuer: "lavanreact",
