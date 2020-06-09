@@ -68,14 +68,24 @@ module.exports = async function (server) {
             if (!isEmail(payload.username)) throw Boom.badRequest("Deve ser informado um email válido");
             if (!payload.password || payload.password.length < 6) throw Boom.badRequest("Deve ser informado uma senha com mais de 6 caracteres");
 
-            refreshTokens
+            let permissions = ["servicos.listar"];
 
+            if (payload.username.includes("@nuvem")) {
+                permissions = [
+                    "servicos.listar",
+                    "servicos.criar",
+                    "servicos.alterar",
+                    "servicos.remover",
+                    "agenda.listar",
+                ];
+            }
             const obj = {
                 username: payload.username,
                 password: payload.password,
                 profile_avatar: gravatar.url(payload.username),
                 sub: payload.username,
-                issuer: "lavanreact"
+                issuer: "lavanreact",
+                permissions
             }; // object/info you want to sign
 
             const token = JWT.sign(obj, secret, { expiresIn: '5m' });
