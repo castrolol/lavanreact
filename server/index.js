@@ -1,6 +1,7 @@
 'use strict';
 
 const Hapi = require('@hapi/hapi');
+const auth = require("./auth");
 const routes = require("./routes");
 
 const init = async () => {
@@ -10,8 +11,9 @@ const init = async () => {
         host: 'localhost'
     });
 
-    routes(server);
+    await auth(server);
 
+    routes(server);
 
     await server.start();
 

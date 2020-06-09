@@ -9,6 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@hapi/hapi": "^19.1.1"
+    "@hapi/hapi": "^19.1.1",
+    "gravatar": "^1.8.0",
+    "hapi-auth-jwt2": "^10.1.0",
+    "is-email": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "uuid": "^8.1.0"
   }
 }
