@@ -1,0 +1,16 @@
+.content {
+  width: 400px;
+  margin: 100px auto; 
+  padding: 16px;
+  overflow: hidden;
+}
+
+
+.row {
+  margin: 16px 0;
+}
+
+.buttonLogin {
+  float: right;
+  margin-top: 32px;
+}

@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
-import http from '../../../infra/http';
-import { URLS } from '../../../res/URLS';
+import http from '../../../../infra/http';
+import { URLS } from '../../../../res/URLS';
 import { useSnackbar } from 'notistack';
 
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSnackbar } from 'notistack'
-import { URLS } from '../../../res/URLS';
-import http from '../../../infra/http';
+import { URLS } from '../../../../res/URLS';
+import http from '../../../../infra/http';
 
 
 

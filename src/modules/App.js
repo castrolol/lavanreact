@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
-import ServicosModule from "./servicos";
+import { ServicosModule } from "./privado";
+import { LoginModule } from "./publico";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { SnackbarProvider } from 'notistack';
 import { ConfirmProvider } from 'material-ui-confirm';
@@ -10,14 +11,12 @@ function App() {
     <BrowserRouter>
       <ConfirmProvider>
         <SnackbarProvider maxSnack={3}>
-
-          <Layout>
-
-            <Switch>
-              <Route path="/servicos" component={ServicosModule} />
-            </Switch>
-
-          </Layout>
+  
+          <Switch>
+            <Route path="/login" component={LoginModule} />
+            <Route path="/admin/servicos" component={ServicosModule} />
+          </Switch>
+ 
         </SnackbarProvider>
       </ConfirmProvider>
     </BrowserRouter>

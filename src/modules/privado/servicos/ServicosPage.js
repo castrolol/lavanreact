@@ -71,12 +71,7 @@ function ServicosPage() {
   const [filtroUnidade, setFiltroUnidade] = useState(null);
   const [servicos, loading, reload] = useServicosApi(filtroUnidade);
   const [remover] = useRemoverServico(reload);
-
-  useEffect(() => {
-    if (!match.isExact) return;
-    reload();
-  }, [match.isExact])
-
+ 
   return (
     <>
       <div style={{ padding: 16 }}>

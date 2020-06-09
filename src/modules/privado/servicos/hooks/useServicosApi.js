@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
-import http from "../../../infra/http";
-import { URLS } from "../../../res/URLS";
+import http from "../../../../infra/http";
+import { URLS } from "../../../../res/URLS";
 
 function useServicoApi(unidade) {
   const [payload, setPayload] = useState([]);
