@@ -10,6 +10,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
+    "jwt-decode": "^2.2.0",
     "material-table": "^1.57.2",
     "material-ui-confirm": "^2.0.4",
     "moment": "^2.25.3",
