@@ -80,7 +80,7 @@ function ServicosPage() {
 
           <Button
             onClick={() => {
-              history.push("/servicos/novo")
+              history.push("/admin/servicos/novo")
             }}
             startIcon={<AddIcon />}
             className={classes.buttonNovo}
@@ -103,12 +103,12 @@ function ServicosPage() {
             {
               icon: 'attach_money',
               tooltip: 'Alterar Produto',
-              onClick: (event, rowData) => history.push(`/servicos/${rowData.id}/alterar-preco`)
+              onClick: (event, rowData) => history.push(`/admin/servicos/${rowData.id}/alterar-preco`)
             },
             {
               icon: 'edit',
               tooltip: 'Alterar Produto',
-              onClick: (event, rowData) => history.push(`/servicos/${rowData.id}`)
+              onClick: (event, rowData) => history.push(`/admin/servicos/${rowData.id}`)
             },
             {
               icon: 'delete',
