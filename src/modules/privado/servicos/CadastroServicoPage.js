@@ -46,7 +46,7 @@ export default function CadastroServicoPage() {
                 horizontal: 'center',
             },
         })
-        history.replace("/servicos")
+        history.replace("/admin/servicos")
         // notifique!...
         // redirecione!!
     });
