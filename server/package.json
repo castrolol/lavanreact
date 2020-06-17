@@ -10,10 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "@hapi/hapi": "^19.1.1",
+    "chance": "^1.1.6",
     "gravatar": "^1.8.0",
     "hapi-auth-jwt2": "^10.1.0",
     "is-email": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
-    "uuid": "^8.1.0"
+    "moment": "^2.26.0",
+    "uuid": "^8.1.0",
+    "yiq": "^3.0.1"
   }
 }

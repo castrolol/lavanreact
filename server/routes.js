@@ -1,6 +1,10 @@
 const Boom = require("@hapi/boom");
-
+const moment = require("moment");
+const dates = require("./dates.fake.api");
 let ids = 10;
+
+
+
 
 module.exports = function (server) {
 
@@ -87,6 +91,26 @@ module.exports = function (server) {
             return servicos.splice(index, 1)[0];
         }
     });
+
+
+
+    server.route({
+        method: 'GET',
+        path: '/agenda',
+        options: {
+            auth: false,
+            cors: true
+        },
+        handler: (request, h) => {
+            
+
+            return dates;
+        }
+    });
+
+
+
+    
 
     const servicos = [
         {

@@ -123,7 +123,10 @@ function SideMenu() {
     <SideMenuContainer>
       <List component="nav">
         <ListSubheader>Menu</ListSubheader>
-        <ListItem button onClick={() => history.push("servicos")}>
+        <ListItem button onClick={() => history.push("/admin/")}>
+          <ListItemText primary="Inicio" />
+        </ListItem>
+        <ListItem button onClick={() => history.push("/admin/servicos")}>
           <ListItemText primary="Serviços" />
         </ListItem>
       </List>

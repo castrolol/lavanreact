@@ -6,6 +6,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { SnackbarProvider } from 'notistack';
 import { ConfirmProvider } from 'material-ui-confirm';
 import ContextProvider from './context';
+import HomePage from "./privado/HomePage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
 
             <Switch>
               <Route path="/login" component={LoginModule} />
+              <Route path="/admin" component={HomePage} exact />
               <Route path="/admin/servicos" component={ServicosModule} />
               <Route path="/admin/sem-permissao" component={SemPermissaoModule} />
             </Switch>
