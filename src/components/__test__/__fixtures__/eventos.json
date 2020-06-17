@@ -1,0 +1,46 @@
+[
+    {
+        "dia": "segunda",
+        "eventos": []
+    },
+    {
+        "dia": "terça",
+        "eventos": [
+            {
+                "date": "2020-06-16T08:52:23.519-04:00",
+                "title": "revisar os vestidos",
+                "color": "#707a0f",
+                "textColor": "#fff"
+            },
+            {
+                "date": "2020-06-16T15:52:23.519-04:00",
+                "title": "revisar os vestidos 2",
+                "color": "#707a0f",
+                "textColor": "#fff"
+            }
+        ]
+    },
+    {
+        "dia": "quarta",
+        "eventos": []
+    },
+    {
+        "dia": "quinta",
+        "eventos": []
+    },
+    {
+        "dia": "sexta",
+        "eventos": [
+            {
+                "date": "2020-06-19T19:52:23.519-04:00",
+                "title": "buscar as capas de sofá",
+                "color": "#a67249",
+                "textColor": "#fff"
+            }
+        ]
+    },
+    {
+        "dia": "sábado",
+        "eventos": []
+    }
+]
