@@ -7,4 +7,7 @@ export const URLS = {
   ADICIONAR_SERVICO: "servicos",
   DELETE_SERVICO: (id) => `servicos/${id}`,
   OBTER_SERVICOS_FILTRADO: (unidade) => `servicos?unidade=${unidade}`,
+  OBTER_EVENTOS: "eventos",
+  OBTER_EVENTO_DETALHE: (id) => `eventos/${id}`
+
 };
